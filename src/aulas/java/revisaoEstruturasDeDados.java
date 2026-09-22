@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class revisaoEstruturasDeDados {
     public static void main(String[] args) {
 
-        try (Scanner sc = new Scanner(System.in)) {
+        Scanner sc = new Scanner(System.in); {
 
             String out = "";
             System.out.println("Insira valores inteiros espaçados: ");
@@ -25,11 +25,18 @@ public class revisaoEstruturasDeDados {
             System.out.println(teste + 7);
             */
 
+            anomalias();
 
         }
+        sc.close();
     }
-}
 
-class Node {
-    
+    public static void anomalias() {
+        int a = 100, b = 100;
+        System.out.println("int 100 == int 100: " + (a == b)); // Números inteiros são primitivos, então a comparação é verdadeira se forem iguais
+        Integer e = 200, f = 200;
+        System.out.println("Integer 200 == Integer 200: " + (e == f)); // Aqui o Java cria dois novos objetos na memória e compara-os, então a comparação é falsa
+        Integer g = 200, h = 200;
+        System.out.println("Integer 200.equals(Integer 200): " + (g.equals(h))); // Usando o método equals() para comparar objetos ele compara os valores contidos nos objetos, e não os endereços de memória, então é verdadeira
+    }
 }
