@@ -1,3 +1,13 @@
 {
-    "C_Cpp.errorSquiggles": "enabled"
+    "C_Cpp.errorSquiggles": "enabled",
+
+    "code-runner.runInTerminal": true,
+    "code-runner.clearPreviousOutput": true,
+
+    "code-runner.ignoreLanguageList": [
+        "java"
+    ],
+
+    "code-runner.executorMap": {
+    }
 }
