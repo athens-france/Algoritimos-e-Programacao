@@ -9,3 +9,4 @@ src/aulas/TypeScript/dist/
 
 *.exe
 *.gguf
+*.class
