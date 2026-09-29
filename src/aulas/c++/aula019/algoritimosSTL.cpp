@@ -15,11 +15,12 @@ bool alfabeto(const char& a);
 
 int main(){
 
-
+    /*
     for(int j = 65; j<123; j++){ // 65 - 122
         cout << char(j) << " ";
     }
-
+    */
+    
     array <double, 7> temperaturas = {22.5, 25.0, 19.5, 28.0, 25.0, 30.5, 21.0};
 
     auto it = max_element(temperaturas.begin(),temperaturas.end());
@@ -51,7 +52,7 @@ int main(){
 
     sort(frase.begin(), frase.end(), alfa); // recebe o iterador da função, então não chama ela com alfa()
     
-    cout << frase.data() << " ";
+    //cout << frase.data() << " ";
     
     vector <char> conteudo;
     string texto, filtrado;
@@ -84,7 +85,7 @@ int main(){
     //conteudo.push_back('\0');
     
     
-    cout << conteudo.data() << " ";
+    cout << conteudo.data() << endl;
     
 
     conteudo.erase(conteudo.begin(), conteudo.end()); // somente para vector
