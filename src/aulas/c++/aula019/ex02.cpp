@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <numeric>
 using namespace std;
 
 struct Aluno {
@@ -9,34 +8,76 @@ struct Aluno {
     double media;
 };
 
-bool cre(const double& a, const double& b);
+bool aprovado(const Aluno & pessoa);
+bool cre(const Aluno& a, const Aluno& b);
+bool minima(const Aluno& a, const Aluno& b);
 
 
 int main(){
 
-    vector <Aluno> Alunos = {
+    vector <Aluno> alunos = {
         {"Ana", 7.5},
         {"Beatriz", 8.0},
-        {"Caio", 5.0},
-        {"Davi", 6.3},
-        {"João", 5.0}
+        {"Caio", 6.0},
+        {"Davi", 9.3},
+        {"João", 6.0}
     };
 
-    /*
-        • localizar o primeiro aluno aprovado
-        • contar os alunos aprovados
-        • ordenar os alunos pela média
-        • localizar a maior média
-        • localizar a menor média
-        • verificar se todos foram aprovados
-        • verificar se algum aluno foi reprovado
-    */
+    auto passou = find_if(alunos.begin(), alunos.end(), aprovado);
+
+    if (passou != alunos.end()) {
+        cout << passou->nome << " (primeiro aprovado): ";
+        cout << passou->media << endl;
+    } else {
+        cout << "Ninguém foi aprovado" << endl;
+    }
+
+    int passados = count_if(alunos.begin(), alunos.end(), aprovado);
+    cout << "Aprovados: " << passados << endl;
+
+    sort(alunos.begin(), alunos.end(), cre);
+
+    cout << "Lista em ordem crescente:" << endl;
+
+    for(auto a : alunos){cout << a.nome << ": " << a.media << endl;};
+
+    auto maior = max_element(alunos.begin(), alunos.end(), cre);
+
+    cout << "Maior média: " << maior->media << endl;
+
+    auto menor = max_element(alunos.begin(), alunos.end(), minima);
+
+    cout << "Menor média: " << menor->media << endl;
+
+    auto todos = all_of(alunos.begin(), alunos.end(), aprovado);
+
+    if (todos) {
+        cout << "Todos foram aprovados!" << endl;
+    } else {
+        cout << "Nem todos foram aprovados..." << endl;
+    }
+
+    auto repetente = any_of(alunos.begin(), alunos.end(), aprovado);
+
+    if (!repetente) {
+        cout << "Alguém reprovou..." << endl;
+    } else {
+        cout << "Ninguém reprovou!" << endl;
+    }
 
 
     return 0;
 }
 
 
-bool cre(const double& a, const double& b){
-    return a < b; // crescente
+bool cre(const Aluno& a, const Aluno& b){
+    return a.media < b.media; // crescente
+}
+
+bool aprovado(const Aluno & pessoa){
+    return pessoa.media >= 6.0;
+}
+
+bool minima(const Aluno& a, const Aluno& b){
+    return a.media > b.media; // decrescente
 }
