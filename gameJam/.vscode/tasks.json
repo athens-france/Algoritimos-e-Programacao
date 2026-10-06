@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Compilar Raylib",
+            "command": "C:/Users/8640416/Downloads/Prog/Algoritimos-e-Programacao/w64devkit/bin/g++.exe",
+            "args": [
+                "-o",
+                "${workspaceFolder}/game.exe",
+                "${workspaceFolder}/main.cpp",
+                "-I${workspaceFolder}/include",
+                "-L${workspaceFolder}/lib",
+                "-lraylib",
+                "-lgdi32",
+                "-lwinmm"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        }
+    ]
+}
