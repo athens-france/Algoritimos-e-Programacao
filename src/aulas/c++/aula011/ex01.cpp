@@ -58,13 +58,14 @@ bool alturaValida(double altura){
     }
 }
 
-string classificarIMC(double imc){
-    if(imc<16){
-        return "magreza grave";}
-    else if(imc<16&&imc<17){
-        return "magreza moderada";}
-    else if(imc>=17&&imc<18.5){
-        return "magreza leve";}
+ string classificarIMC(double imc){
+     if(imc<16){
+         return "magreza grave";}
+-    else if(imc<16&&imc<17){
++    else if(imc>=16&&imc<17){
+         return "magreza moderada";}
+     else if(imc>=17&&imc<18.5){
+         return "magreza leve";}
     else if(imc>=18.5&&imc<25){
         return "saudável";}
     else if(imc>=25&&imc<30){
